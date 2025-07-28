@@ -1,0 +1,203 @@
+/* McMaster Business Administration Website - Global Styles */
+
+/* CSS Reset/Normalize */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--color-mcmaster-black);
+  background-color: var(--color-white-bg);
+}
+
+/* McMaster Brand Color Palette */
+:root {
+  /* Background Colors */
+  --color-light-bg: #F7F8F8;
+  --color-white-bg: #FFFFFF;
+  
+  /* Text Colors */
+  --color-unselected-dim: #536980;
+  --color-selected-dark: #101C29;
+  --color-subgray-word: #907F87;
+  --color-mcmaster-black: #1D030B;
+  
+  /* Brand Colors */
+  --color-mcmaster-red: #E11955;
+  --color-mcmaster-rouge: #7A003C;
+  
+  /* UI Elements */
+  --color-divider: #E6E7E8;
+  --color-box: #D1D1D1;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Common Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-mcmaster-red);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-mcmaster-rouge);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-mcmaster-red);
+  border: 2px solid var(--color-mcmaster-red);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-mcmaster-red);
+  color: white;
+}
+
+/* Card Styles */
+.card {
+  background: var(--color-white-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.1rem; }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-selected-dark);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-divider);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-mcmaster-red);
+  box-shadow: 0 0 0 2px rgba(225, 25, 85, 0.2);
+}
+
+/* Section Styles */
+.section {
+  padding: 3rem 0;
+}
+
+.section-light {
+  background-color: var(--color-light-bg);
+}
+
+.section-white {
+  background-color: var(--color-white-bg);
+} 

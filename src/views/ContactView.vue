@@ -1,19 +1,43 @@
 <template>
-  <div class="contact-page">
-    <h1>Contact Us Page</h1>
-    <p>This page will contain the Contact components.</p>
+  <div class="contact-view">
+    <!-- Header -->
+    <HeaderGeneral activePage="contact" />
+
+    <!-- Hero Section -->
+    <HeroContact />
+
+    <!-- Contact Form Section -->
+    <ContactForm />
+
+    <!-- Call to Action -->
+    <CallToActionContactProgram />
+
+    <!-- Footer -->
+    <FooterGeneral />
   </div>
 </template>
 
 <script>
+import HeaderGeneral from '@/components/shared/HeaderGeneral.vue'
+import HeroContact from '@/components/contact/HeroContact.vue'
+import ContactForm from '@/components/contact/ContactForm.vue'
+import CallToActionContactProgram from '@/components/shared/CallToActionContactProgram.vue'
+import FooterGeneral from '@/components/shared/FooterGeneral.vue'
+
 export default {
-  name: 'ContactView'
+  name: 'ContactView',
+  components: {
+    HeaderGeneral,
+    HeroContact,
+    ContactForm,
+    CallToActionContactProgram,
+    FooterGeneral,
+  },
 }
 </script>
 
 <style scoped>
-.contact-page {
-  padding: 2rem;
-  text-align: center;
+.contact-view {
+  min-height: 100vh;
 }
-</style> 
+</style>

@@ -1,12 +1,17 @@
 <template>
   <section class="hero-news-events">
     <div class="hero-container">
-      <h1 class="hero-title">Latest News & Events</h1>
-      <p class="hero-subtitle">
-        Stay updated with the latest developments in our Business Administration program
-      </p>
-      <div class="hero-cta">
-        <button class="hero-button">Learn More</button>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">News & Events</h1>
+          <p class="hero-subtitle">
+            Catch the latest updates, announcements, and stories from Continuing Education at
+            McMaster
+          </p>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="@/assets/images/NewEvent _ Hero Banner.jpg" alt="People looking at tablet" />
       </div>
     </div>
   </section>
@@ -20,63 +25,77 @@ export default {
 
 <style scoped>
 .hero-news-events {
-  background: linear-gradient(
-    135deg,
-    var(--color-mcmaster-red) 0%,
-    var(--color-mcmaster-rouge) 100%
-  );
-  color: white;
+  background-color: white;
   padding: 4rem 2rem;
-  text-align: center;
+  min-height: 400px;
 }
 
 .hero-container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-text {
+  color: var(--color-mcmaster-black);
 }
 
 .hero-title {
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
+  color: var(--color-mcmaster-black);
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
   line-height: 1.5;
+  color: var(--color-unselected-dim);
 }
 
-.hero-button {
-  background-color: white;
-  color: var(--color-mcmaster-red);
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-button:hover {
-  background-color: var(--color-light-bg);
-  transform: translateY(-2px);
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 @media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
   .hero-news-events {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .hero-title {
     font-size: 2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
   }
 }
 </style>

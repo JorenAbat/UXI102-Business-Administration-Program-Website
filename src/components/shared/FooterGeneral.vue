@@ -1,79 +1,95 @@
 <template>
   <footer class="footer-general">
     <div class="footer-container">
-      <!-- Newsletter Signup -->
+      <!-- Left Section: McMaster Info -->
+      <div class="mcmaster-section">
+        <div class="logo-container">
+          <img
+            src="@/assets/images/mcmaster-logo.png"
+            alt="McMaster University"
+            class="footer-logo"
+          />
+        </div>
+        <p class="mcmaster-description">
+          At McMaster, we don't just teach—we challenge, inspire, and elevate. Our students go on to
+          lead breakthroughs in medicine, drive innovation in engineering, and shape policy that
+          matters. Ranked among Canada's top research universities, we're proud of the minds we've
+          shaped and the impact they've made. Excellence isn't a buzzword here—it's tradition,
+          earned and proven every day in labs, classrooms, and communities around the world.
+        </p>
+      </div>
+
+      <!-- Center Section: Navigation Links -->
+      <div class="navigation-section">
+        <!-- Programs & Courses Column -->
+        <div class="nav-column">
+          <h3 class="nav-title">PROGRAMS & COURSES</h3>
+          <ul class="nav-links">
+            <li><a href="#" class="nav-link">Business</a></li>
+            <li><a href="#" class="nav-link">Health & Social Services</a></li>
+            <li><a href="#" class="nav-link">Marketing and Communications</a></li>
+            <li><a href="#" class="nav-link">Technology and Data</a></li>
+            <li><a href="#" class="nav-link">Professional Development</a></li>
+          </ul>
+        </div>
+
+        <!-- Additional Programs Column -->
+        <div class="nav-column">
+          <ul class="nav-links nav-links-secondary">
+            <li><a href="#" class="nav-link">edXpress</a></li>
+            <li><a href="#" class="nav-link">Microcredentials</a></li>
+            <li><a href="#" class="nav-link">Corporate Training</a></li>
+            <li><a href="#" class="nav-link">Degree Pathway</a></li>
+            <li><a href="#" class="nav-link">McMaster Undergrad Options</a></li>
+          </ul>
+        </div>
+
+        <!-- About Column -->
+        <div class="nav-column">
+          <h3 class="nav-title">ABOUT</h3>
+          <ul class="nav-links">
+            <li><a href="#" class="nav-link">HELP CENTRE (FAQ)</a></li>
+            <li><router-link to="/news-events" class="nav-link">NEWS & EVENTS</router-link></li>
+            <li><router-link to="/contact" class="nav-link">CONTACT US</router-link></li>
+            <li><a href="#" class="nav-link">REGISTRATION</a></li>
+            <li><a href="#" class="nav-link">LOG IN MACID</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Section: Newsletter Signup -->
       <div class="newsletter-section">
-        <h3 class="footer-title">Stay Updated</h3>
-        <p class="footer-subtitle">Subscribe to our newsletter for the latest news and updates</p>
+        <h3 class="newsletter-title">Stay in the loop with program updates</h3>
+        <p class="newsletter-subtitle">
+          Subscribe to our newsletter to receive the latest news on course offerings, important
+          dates, and special events from McMaster Continuing Education.
+        </p>
         <form class="newsletter-form" @submit.prevent="subscribeNewsletter">
           <input
             type="email"
             v-model="email"
-            placeholder="Enter your email address"
+            placeholder="Your Email"
             class="newsletter-input"
             required
           />
           <button type="submit" class="newsletter-button">Subscribe</button>
         </form>
       </div>
-
-      <!-- Quick Links -->
-      <div class="quick-links-section">
-        <h3 class="footer-title">Quick Links</h3>
-        <ul class="footer-links">
-          <li><router-link to="/news-events" class="footer-link">News & Events</router-link></li>
-          <li><router-link to="/contact" class="footer-link">Contact Us</router-link></li>
-          <li><router-link to="/program" class="footer-link">Program Details</router-link></li>
-          <li><router-link to="/diploma" class="footer-link">Diploma Program</router-link></li>
-        </ul>
-      </div>
-
-      <!-- Contact Information -->
-      <div class="contact-section">
-        <h3 class="footer-title">Contact Information</h3>
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>McMaster University<br />1280 Main Street West<br />Hamilton, ON L8S 4L8</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>(905) 525-9140</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>business.admin@mcmaster.ca</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social Media -->
-      <div class="social-section">
-        <h3 class="footer-title">Follow Us</h3>
-        <div class="social-links">
-          <a href="#" class="social-link" aria-label="Facebook">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="#" class="social-link" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="social-link" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="#" class="social-link" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </div>
-      </div>
     </div>
 
-    <!-- Copyright -->
-    <div class="copyright-section">
-      <div class="copyright-container">
-        <p class="copyright-text">© 2024 McMaster University. All rights reserved.</p>
-        <div class="footer-brand">
-          <span class="brand-text">McMaster</span>
-          <span class="brand-subtitle">Business Administration</span>
+    <!-- Bottom Section: Copyright and Legal -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <div class="copyright-info">
+          <span class="copyright-text">© 2025 McMaster University</span>
+          <span class="address-text">1280 Main St W, Hamilton, L8S 4L8, Ontario, Canada</span>
+          <span class="contact-text">(905) 525-9140</span>
+          <span class="email-text">info@mcmaster.com</span>
+        </div>
+        <div class="legal-links">
+          <a href="#" class="legal-link">Refund</a>
+          <a href="#" class="legal-link">Privacy Policy</a>
+          <a href="#" class="legal-link">Terms & Conditions</a>
         </div>
       </div>
     </div>
@@ -101,197 +117,279 @@ export default {
 
 <style scoped>
 .footer-general {
-  background-color: var(--color-selected-dark);
-  color: white;
-  padding: 4rem 2rem 0;
+  background-color: #f8f9fa;
+  color: var(--color-selected-dark);
+  width: 100%;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 96vw;
   margin: 0 auto;
+  padding: 6vh 1vw 4vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 3vw;
+  align-items: flex-start;
 }
 
-.footer-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: white;
+/* Left Section: McMaster Info */
+.mcmaster-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.footer-subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.5rem;
+.logo-container {
+  margin-bottom: 0.8rem;
+}
+
+.footer-logo {
+  height: 50px;
+  width: auto;
+}
+
+.mcmaster-description {
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
   line-height: 1.5;
+  color: #6c757d;
+  margin: 0;
 }
 
-/* Newsletter Section */
+/* Center Section: Navigation Links */
+.navigation-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.5vw;
+}
+
+.nav-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-title {
+  font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+  font-weight: 700;
+  color: var(--color-mcmaster-red);
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.nav-links-secondary {
+  margin-top: 1.9rem; /* Align with other columns */
+}
+
+.nav-link {
+  color: #6c757d;
+  text-decoration: none;
+  font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+  font-weight: 600;
+  transition: color 0.3s ease;
+  line-height: 1.3;
+}
+
+.nav-link:hover {
+  color: var(--color-selected-dark);
+}
+
+/* Right Section: Newsletter Signup */
+.newsletter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.newsletter-title {
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 700;
+  color: var(--color-selected-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.newsletter-subtitle {
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  color: #6c757d;
+  line-height: 1.4;
+  margin: 0;
+}
+
 .newsletter-form {
   display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  gap: 0.4rem;
+  background-color: white;
+  border-radius: 12px;
+  padding: 0.3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .newsletter-input {
   flex: 1;
-  min-width: 200px;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   border: none;
-  border-radius: 4px;
-  font-size: 0.875rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  background-color: #f8f9fa;
+}
+
+.newsletter-input::placeholder {
+  color: #adb5bd;
 }
 
 .newsletter-button {
   background-color: var(--color-mcmaster-red);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.2rem;
+  border-radius: 10px;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
 .newsletter-button:hover {
   background-color: var(--color-mcmaster-rouge);
 }
 
-/* Quick Links Section */
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Bottom Section: Copyright and Legal */
+.footer-bottom {
+  border-top: 1px solid #e0e0e0;
+  background-color: #f0f1f2;
 }
 
-.footer-links li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-link {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-  color: white;
-}
-
-/* Contact Section */
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.5;
-}
-
-.contact-item i {
-  color: var(--color-mcmaster-red);
-  margin-top: 0.25rem;
-  flex-shrink: 0;
-}
-
-/* Social Section */
-.social-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background-color: var(--color-mcmaster-red);
-  transform: translateY(-2px);
-}
-
-/* Copyright Section */
-.copyright-section {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem 0;
-}
-
-.copyright-container {
-  max-width: 1200px;
+.footer-bottom-container {
+  max-width: 96vw;
   margin: 0 auto;
+  padding: 1.5vh 1vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.copyright-text {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.875rem;
-}
-
-.footer-brand {
+.copyright-info {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.brand-text {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: white;
+.copyright-text,
+.address-text,
+.contact-text,
+.email-text {
+  font-size: clamp(0.75rem, 0.9vw, 0.8rem);
+  color: #6c757d;
 }
 
-.brand-subtitle {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
+.legal-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.legal-link {
+  font-size: clamp(0.75rem, 0.9vw, 0.8rem);
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+  color: var(--color-selected-dark);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .footer-general {
-    padding: 3rem 1rem 0;
+@media (max-width: 1200px) {
+  .footer-container {
+    max-width: 98vw;
   }
 
+  .footer-bottom-container {
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navigation-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+  }
+
+  .nav-column:last-child {
+    grid-column: 1 / 3;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 4vh;
+    padding: 4vh 2vw 3vh;
+    max-width: 96vw;
   }
 
-  .newsletter-form {
+  .navigation-section {
+    grid-template-columns: 1fr;
+    gap: 3vh;
+    order: 3;
+  }
+
+  .newsletter-section {
+    order: 2;
+  }
+
+  .footer-bottom-container {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    max-width: 96vw;
+    padding: 1.5vh 2vw;
   }
 
-  .copyright-container {
+  .copyright-info {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
-  .footer-brand {
-    align-items: center;
+  .legal-links {
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .social-links {
-    justify-content: center;
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-button {
+    align-self: flex-start;
+  }
+
+  .legal-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
   }
 }
 </style>

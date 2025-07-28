@@ -1,29 +1,107 @@
 <template>
   <section class="upcoming-events-section">
     <div class="container">
-      <h2 class="section-title">Upcoming Events</h2>
+      <!-- Header with title and explore link -->
+      <div class="section-header">
+        <div class="section-title-area">
+          <h2 class="section-title">Upcoming Events</h2>
+          <p class="section-subtitle">
+            Fill up all the information here, then click submit button.
+          </p>
+        </div>
+        <a href="#" class="explore-events">
+          Explore Event Calendar
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 17L17 7M17 7H7M17 7V17"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Events Grid -->
       <div class="events-grid">
-        <article class="event-card" v-for="(event, index) in events" :key="index">
-          <div class="event-date">
-            <div class="date-day">{{ event.day }}</div>
-            <div class="date-month">{{ event.month }}</div>
-          </div>
-          <div class="event-content">
-            <h3 class="event-title">{{ event.title }}</h3>
-            <div class="event-details">
-              <div class="event-time">
-                <i class="fas fa-clock"></i>
-                {{ event.time }}
-              </div>
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                {{ event.location }}
-              </div>
+        <!-- Top row - 2 large cards -->
+        <div class="events-grid-top">
+          <article
+            class="event-card large"
+            v-for="(event, index) in topEvents"
+            :key="'top-' + index"
+          >
+            <div class="event-image">
+              <img :src="event.image" :alt="event.title" />
             </div>
-            <p class="event-description">{{ event.description }}</p>
-            <button class="register-button">Register Now</button>
-          </div>
-        </article>
+            <div class="event-content">
+              <h3 class="event-title">{{ event.title }}</h3>
+              <div class="event-datetime">{{ event.date }}</div>
+              <div class="event-time">{{ event.time }}</div>
+              <a href="#" class="check-out">
+                Check out
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bottom row - 3 smaller cards -->
+        <div class="events-grid-bottom">
+          <article
+            class="event-card small"
+            v-for="(event, index) in bottomEvents"
+            :key="'bottom-' + index"
+          >
+            <div class="event-image">
+              <img :src="event.image" :alt="event.title" />
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">{{ event.title }}</h3>
+              <div class="event-datetime">{{ event.date }}</div>
+              <div class="event-time">{{ event.time }}</div>
+              <a href="#" class="check-out">
+                Check out
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -34,33 +112,38 @@ export default {
   name: 'UpcomingEventsSection',
   data() {
     return {
-      events: [
+      topEvents: [
         {
-          day: '20',
-          month: 'DEC',
-          title: 'Information Session: Business Administration Program',
-          time: '6:00 PM - 7:30 PM',
-          location: 'Virtual Event',
-          description:
-            'Join us for an informative session about our Business Administration program. Learn about curriculum, career opportunities, and application process.',
+          title: 'Professional Addiction Studies Program Info Session',
+          date: 'Aug 6, 2025',
+          time: '12:00PM - 1:00PM',
+          image: '/src/assets/images/Event1.png',
         },
         {
-          day: '25',
-          month: 'DEC',
-          title: 'Student Success Panel Discussion',
-          time: '2:00 PM - 3:30 PM',
-          location: 'McMaster Campus',
-          description:
-            'Hear from current students and alumni about their experiences in the Business Administration program and career outcomes.',
+          title: 'Business and Marketing Programs Online Info Session',
+          date: 'Aug 14, 2025',
+          time: '11:00AM - 12:00PM',
+          image: '/src/assets/images/Event2.jpg',
+        },
+      ],
+      bottomEvents: [
+        {
+          title: 'Tech and Data Programs Online Info Session',
+          date: 'Aug 14, 2025',
+          time: '11:00AM - 12:00PM',
+          image: '/src/assets/images/Event3.png',
         },
         {
-          day: '30',
-          month: 'DEC',
-          title: 'Application Workshop',
-          time: '1:00 PM - 2:30 PM',
-          location: 'Virtual Event',
-          description:
-            'Get step-by-step guidance on completing your application for the Business Administration program.',
+          title: 'Health and Social Services Programs Online Info Session',
+          date: 'Aug 14, 2025',
+          time: '11:00AM - 12:00PM',
+          image: '/src/assets/images/Event4.jpg',
+        },
+        {
+          title: 'Student Orientation Webinar',
+          date: 'Aug 14, 2025',
+          time: '11:00AM - 12:00PM',
+          image: '/src/assets/images/Event5.jpg',
         },
       ],
     }
@@ -70,140 +153,265 @@ export default {
 
 <style scoped>
 .upcoming-events-section {
-  padding: 4rem 2rem;
-  background-color: var(--color-light-bg);
+  padding: 6vh 2vw;
+  background-color: white;
+  width: 100%;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 90vw;
   margin: 0 auto;
+  padding: 0;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-selected-dark);
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
-}
-
-.event-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Header Section */
+.section-header {
   display: flex;
-  transition: transform 0.3s ease;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4vh;
 }
 
-.event-card:hover {
-  transform: translateY(-4px);
-}
-
-.event-date {
-  background: var(--color-mcmaster-red);
-  color: white;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 80px;
-}
-
-.date-day {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.date-month {
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.event-content {
-  padding: 1.5rem;
+.section-title-area {
   flex: 1;
 }
 
-.event-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
   color: var(--color-selected-dark);
-  margin-bottom: 1rem;
-  line-height: 1.3;
+  margin: 0 0 0.5em 0;
 }
 
-.event-details {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
-  color: var(--color-subgray-word);
+.section-subtitle {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: var(--color-unselected-dim);
+  margin: 0;
 }
 
-.event-time,
-.event-location {
+.explore-events {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.event-description {
-  color: var(--color-unselected-dim);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.register-button {
-  background-color: var(--color-mcmaster-red);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  gap: 0.5em;
+  color: var(--color-mcmaster-red);
+  text-decoration: none;
   font-weight: 600;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  transition: color 0.3s ease;
 }
 
-.register-button:hover {
-  background-color: var(--color-mcmaster-rouge);
+.explore-events:hover {
+  color: #8b0000;
+}
+
+.explore-events svg {
+  transition: transform 0.3s ease;
+}
+
+.explore-events:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Events Grid Layout */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4vh 2vw;
+  grid-auto-flow: row;
+}
+
+.events-grid-top {
+  display: contents;
+}
+
+.events-grid-bottom {
+  display: contents;
+}
+
+.event-card.large:first-child {
+  grid-column: 1 / 3;
+}
+
+.event-card.large:nth-child(2) {
+  grid-column: 3 / 4;
+}
+
+.event-card.small {
+  grid-column: span 1;
+}
+
+/* Event Cards */
+.event-card {
+  background: white;
+  border-radius: 1vw;
+  overflow: hidden;
+  box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-0.5vh);
+  box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.12);
+}
+
+.event-card.large .event-image {
+  height: 25vh;
+}
+
+.event-card.small .event-image {
+  height: 20vh;
+}
+
+.event-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-image img {
+  transform: scale(1.05);
+}
+
+.event-content {
+  padding: clamp(1rem, 2vw, 2rem);
+}
+
+.event-title {
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+  color: var(--color-selected-dark);
+  margin-bottom: 1em;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-card.large .event-title {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  -webkit-line-clamp: 2;
+}
+
+.event-datetime {
+  color: var(--color-subgray-word);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  margin-bottom: 0.5em;
+}
+
+.event-time {
+  color: var(--color-subgray-word);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  margin-bottom: 1.5em;
+}
+
+.check-out {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--color-mcmaster-red);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  transition: color 0.3s ease;
+}
+
+.check-out:hover {
+  color: #8b0000;
+}
+
+.check-out svg {
+  transition: transform 0.3s ease;
+}
+
+.check-out:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .event-card.large:first-child {
+    grid-column: 1 / 3;
+  }
+
+  .event-card.large:nth-child(2) {
+    grid-column: 1 / 3;
+  }
+
+  .event-card.small {
+    grid-column: span 1;
+  }
 }
 
 @media (max-width: 768px) {
   .upcoming-events-section {
-    padding: 3rem 1rem;
+    padding: 4vh 3vw;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .container {
+    max-width: 94vw;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 2vh;
+    align-items: flex-start;
   }
 
   .events-grid {
     grid-template-columns: 1fr;
+    gap: 4vh 3vw;
   }
 
-  .event-card {
-    flex-direction: column;
+  .event-card.large:first-child,
+  .event-card.large:nth-child(2),
+  .event-card.small {
+    grid-column: 1;
   }
 
-  .event-date {
-    min-width: auto;
-    padding: 1rem;
+  .event-card.large .event-image,
+  .event-card.small .event-image {
+    height: 25vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .upcoming-events-section {
+    padding: 3vh 4vw;
   }
 
-  .event-details {
-    flex-direction: column;
-    gap: 0.5rem;
+  .container {
+    max-width: 92vw;
+  }
+
+  .event-content {
+    padding: clamp(0.8rem, 3vw, 1.5rem);
+  }
+
+  .event-card.large .event-image,
+  .event-card.small .event-image {
+    height: 22vh;
   }
 }
 </style>

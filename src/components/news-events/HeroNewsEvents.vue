@@ -26,16 +26,17 @@ export default {
 <style scoped>
 .hero-news-events {
   background-color: white;
-  padding: 4rem 2rem;
-  min-height: 400px;
+  padding: 6vh 4vw;
+  min-height: 50vh;
+  width: 100%;
 }
 
 .hero-container {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 4vw;
 }
 
 .hero-content {
@@ -47,7 +48,7 @@ export default {
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -55,7 +56,7 @@ export default {
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.4rem);
   line-height: 1.5;
   color: var(--color-unselected-dim);
 }
@@ -68,34 +69,27 @@ export default {
 }
 
 .hero-image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 1vw;
 }
 
 @media (max-width: 768px) {
+  .hero-news-events {
+    padding: 4vh 3vw;
+  }
+
   .hero-container {
     flex-direction: column;
-    gap: 2rem;
+    gap: 3vh;
     text-align: center;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero-news-events {
-    padding: 2rem 1rem;
-  }
-
-  .hero-title {
-    font-size: 2rem;
+    padding: 3vh 4vw;
+    min-height: 40vh;
   }
 }
 </style>

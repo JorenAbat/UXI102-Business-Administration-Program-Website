@@ -341,6 +341,7 @@ export default {
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -348,6 +349,7 @@ export default {
 .news-card.large .news-title {
   font-size: clamp(1.1rem, 2vw, 1.6rem);
   -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .news-date {

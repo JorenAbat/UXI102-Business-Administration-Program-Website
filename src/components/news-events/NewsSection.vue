@@ -108,6 +108,13 @@
 </template>
 
 <script>
+// Import images
+import News1 from '@/assets/images/News1.jpg'
+import News2 from '@/assets/images/News2.png'
+import News3 from '@/assets/images/News3.png'
+import News4 from '@/assets/images/News4.png'
+import News5 from '@/assets/images/News5.png'
+
 export default {
   name: 'NewsSection',
   data() {
@@ -119,14 +126,14 @@ export default {
           title:
             "Developing tomorrow's AI Leaders: McMaster Continuing Education and M2M Tech launch groundbreaking applied AI program",
           date: 'June 25, 2025',
-          image: '/src/assets/images/News1.jpg',
+          image: News1,
         },
         {
           category: 'HEALTH',
           categoryClass: 'health',
           title: 'Championing Career-Friendly Workplaces as an Occupational Health & Safety Issue',
           date: 'June 25, 2025',
-          image: '/src/assets/images/News2.png',
+          image: News2,
         },
       ],
       bottomNewsItems: [
@@ -136,21 +143,21 @@ export default {
           title:
             "McMaster Continuing Education recognized at CAUCE 2025: Key Takeaways from this year's conference",
           date: 'June 25, 2025',
-          image: '/src/assets/images/News3.png',
+          image: News3,
         },
         {
           category: 'BUSINESS',
           categoryClass: 'business',
           title: 'Strategic Online Learning Support for Canadian Institutions',
           date: 'June 25, 2025',
-          image: '/src/assets/images/News4.png',
+          image: News4,
         },
         {
           category: 'TECH & DATA',
           categoryClass: 'tech-data',
           title: 'The Booming Demand for Full Stack Developers in Canada',
           date: 'June 25, 2025',
-          image: '/src/assets/images/News5.png',
+          image: News5,
         },
       ],
     }

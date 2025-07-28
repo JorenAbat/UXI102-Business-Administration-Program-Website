@@ -108,6 +108,13 @@
 </template>
 
 <script>
+// Import images
+import Event1 from '@/assets/images/Event1.png'
+import Event2 from '@/assets/images/Event2.jpg'
+import Event3 from '@/assets/images/Event3.png'
+import Event4 from '@/assets/images/Event4.jpg'
+import Event5 from '@/assets/images/Event5.jpg'
+
 export default {
   name: 'UpcomingEventsSection',
   data() {
@@ -117,13 +124,13 @@ export default {
           title: 'Professional Addiction Studies Program Info Session',
           date: 'Aug 6, 2025',
           time: '12:00PM - 1:00PM',
-          image: '/src/assets/images/Event1.png',
+          image: Event1,
         },
         {
           title: 'Business and Marketing Programs Online Info Session',
           date: 'Aug 14, 2025',
           time: '11:00AM - 12:00PM',
-          image: '/src/assets/images/Event2.jpg',
+          image: Event2,
         },
       ],
       bottomEvents: [
@@ -131,19 +138,19 @@ export default {
           title: 'Tech and Data Programs Online Info Session',
           date: 'Aug 14, 2025',
           time: '11:00AM - 12:00PM',
-          image: '/src/assets/images/Event3.png',
+          image: Event3,
         },
         {
           title: 'Health and Social Services Programs Online Info Session',
           date: 'Aug 14, 2025',
           time: '11:00AM - 12:00PM',
-          image: '/src/assets/images/Event4.jpg',
+          image: Event4,
         },
         {
           title: 'Student Orientation Webinar',
           date: 'Aug 14, 2025',
           time: '11:00AM - 12:00PM',
-          image: '/src/assets/images/Event5.jpg',
+          image: Event5,
         },
       ],
     }

@@ -2,49 +2,22 @@
   <section class="cta-section">
     <div class="cta-container">
       <div class="cta-content">
-        <h2 class="cta-title">Ready to Get Started?</h2>
+        <h2 class="cta-title">
+          Ready to advance your career?<br />Enroll now for the upcoming term!
+        </h2>
         <p class="cta-subtitle">
-          Take the next step in your career journey with McMaster's Business Administration program.
-          Our expert advisors are here to help you choose the right path.
+          Programs start soon—secure your spot and take the next step forward.
         </p>
         <div class="cta-actions">
-          <router-link to="/program" class="cta-button primary"> Explore Programs </router-link>
-          <router-link to="/contact" class="cta-button secondary"> Get in Touch </router-link>
+          <button class="cta-button primary">Register Now</button>
         </div>
       </div>
 
-      <div class="cta-features">
-        <div class="feature-item">
-          <div class="feature-icon">🎓</div>
-          <div class="feature-text">
-            <h4>Expert Faculty</h4>
-            <p>Learn from industry professionals and academic leaders</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">⏰</div>
-          <div class="feature-text">
-            <h4>Flexible Schedule</h4>
-            <p>Evening and weekend classes for working professionals</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">💼</div>
-          <div class="feature-text">
-            <h4>Career Advancement</h4>
-            <p>95% of graduates advance their careers within 6 months</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">🤝</div>
-          <div class="feature-text">
-            <h4>Industry Connections</h4>
-            <p>Network with professionals and potential employers</p>
-          </div>
-        </div>
+      <div class="cta-image">
+        <img
+          src="@/assets/images/shared/Near Footer.png"
+          alt="Students with backpacks ready to advance their careers"
+        />
       </div>
     </div>
   </section>
@@ -58,15 +31,15 @@ export default {
 
 <style scoped>
 .cta-section {
-  background: linear-gradient(
-    135deg,
-    var(--color-mcmaster-red) 0%,
-    var(--color-mcmaster-rouge) 100%
-  );
+  background: #1a2332;
   color: white;
-  padding: 6vh 2vw;
+  padding: 0;
   position: relative;
   overflow: hidden;
+  box-shadow:
+    0 -2px 8px rgba(0, 0, 0, 0.04),
+    0 -1px 0 rgba(0, 0, 0, 0.06);
+  min-height: 60vh;
 }
 
 .cta-section::before {
@@ -81,166 +54,145 @@ export default {
 }
 
 .cta-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
 }
 
 .cta-content {
-  text-align: center;
-  margin-bottom: 4rem;
+  text-align: left;
+  padding: 6vh 4vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cta-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .cta-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   line-height: 1.6;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   opacity: 0.95;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .cta-actions {
   display: flex;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .cta-button {
-  padding: 1rem 2.5rem;
-  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
-  min-width: 180px;
+  min-width: 150px;
   text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
 .cta-button.primary {
-  background-color: white;
-  color: var(--color-mcmaster-red);
-  border: 2px solid white;
+  background-color: var(--color-mcmaster-red);
+  color: white;
 }
 
 .cta-button.primary:hover {
-  background-color: transparent;
-  color: white;
-  border-color: white;
+  background-color: var(--color-mcmaster-rouge);
   transform: translateY(-2px);
 }
 
-.cta-button.secondary {
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
+.cta-image {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 60vh;
 }
 
-.cta-button.secondary:hover {
-  background-color: white;
-  color: var(--color-mcmaster-red);
-  transform: translateY(-2px);
-}
-
-.cta-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 4rem;
-}
-
-.feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.feature-item:hover {
-  transform: translateY(-4px);
-}
-
-.feature-icon {
-  font-size: 2rem;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  flex-shrink: 0;
-}
-
-.feature-text h4 {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.feature-text p {
-  opacity: 0.9;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  margin: 0;
+.cta-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .cta-container {
+    gap: 3vw;
+  }
+}
+
 @media (max-width: 768px) {
   .cta-section {
-    padding: 4vh 3vw;
+    min-height: 80vh;
+  }
+
+  .cta-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 80vh;
+  }
+
+  .cta-content {
+    text-align: center;
+    padding: 4vh 6vw;
   }
 
   .cta-actions {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
   }
 
   .cta-button {
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;
   }
 
-  .cta-features {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .feature-item {
-    padding: 1.25rem;
+  .cta-image {
+    min-height: 40vh;
+    order: -1;
   }
 }
 
 @media (max-width: 480px) {
   .cta-section {
+    min-height: 70vh;
+  }
+
+  .cta-container {
+    min-height: 70vh;
+  }
+
+  .cta-content {
     padding: 3vh 4vw;
   }
 
-  .feature-item {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
+  .cta-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
-  .feature-icon {
-    align-self: center;
+  .cta-subtitle {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+  }
+
+  .cta-image {
+    min-height: 35vh;
   }
 }
 </style>

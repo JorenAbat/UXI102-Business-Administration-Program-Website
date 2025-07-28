@@ -11,7 +11,10 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="@/assets/images/NewEvent _ Hero Banner.jpg" alt="People looking at tablet" />
+        <img
+          src="@/assets/images/news-events/hero/NewEvent _ Hero Banner.jpg"
+          alt="People looking at tablet"
+        />
       </div>
     </div>
   </section>
@@ -29,6 +32,9 @@ export default {
   padding: 6vh 4vw;
   min-height: 50vh;
   width: 100%;
+  box-shadow:
+    0 -2px 8px rgba(0, 0, 0, 0.04),
+    0 -1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .hero-container {

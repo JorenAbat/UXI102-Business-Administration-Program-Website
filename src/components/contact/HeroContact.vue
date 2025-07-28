@@ -3,19 +3,39 @@
     <div class="hero-container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1 class="hero-title">Get in Touch</h1>
+          <h1 class="hero-title">Contact Us</h1>
           <p class="hero-subtitle">
-            Have questions about our Business Administration programs? We're here to help you find
-            the right path for your career goals.
+            We're here to help! Be sure to explore frequently asked questions or fill out the form
+            below to contact us.
           </p>
           <div class="hero-cta">
-            <button class="cta-button primary">Send Message</button>
-            <button class="cta-button secondary">View FAQ</button>
+            <button class="cta-button primary">Explore FAQs</button>
+            <button class="cta-button secondary">
+              Submit Question
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
       <div class="hero-image">
-        <img src="@/assets/images/NewEvent _ Hero Banner.jpg" alt="Contact support team" />
+        <img
+          src="@/assets/images/contact/hero/Contact Us_Hero Banner.jpg"
+          alt="Woman on phone providing customer support with laptop and coffee"
+        />
       </div>
     </div>
   </section>
@@ -33,6 +53,9 @@ export default {
   padding: 6vh 2vw;
   min-height: 50vh;
   width: 100%;
+  box-shadow:
+    0 -2px 8px rgba(0, 0, 0, 0.04),
+    0 -1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .hero-container {
@@ -74,7 +97,7 @@ export default {
 
 .cta-button {
   padding: 0.875rem 2rem;
-  border-radius: 8px;
+  border-radius: 25px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -97,11 +120,22 @@ export default {
   background-color: transparent;
   color: var(--color-mcmaster-red);
   border-color: var(--color-mcmaster-red);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 .cta-button.secondary:hover {
   background-color: var(--color-mcmaster-red);
   color: white;
+}
+
+.cta-button.secondary svg {
+  transition: transform 0.3s ease;
+}
+
+.cta-button.secondary:hover svg {
+  transform: translate(2px, -2px);
 }
 
 .hero-image {

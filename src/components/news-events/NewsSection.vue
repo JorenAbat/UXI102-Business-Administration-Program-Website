@@ -109,11 +109,11 @@
 
 <script>
 // Import images
-import News1 from '@/assets/images/News1.jpg'
-import News2 from '@/assets/images/News2.png'
-import News3 from '@/assets/images/News3.png'
-import News4 from '@/assets/images/News4.png'
-import News5 from '@/assets/images/News5.png'
+import News1 from '@/assets/images/news-events/news/News1.jpg'
+import News2 from '@/assets/images/news-events/news/News2.png'
+import News3 from '@/assets/images/news-events/news/News3.png'
+import News4 from '@/assets/images/news-events/news/News4.png'
+import News5 from '@/assets/images/news-events/news/News5.png'
 
 export default {
   name: 'NewsSection',

@@ -1,98 +1,105 @@
 <template>
   <section class="contact-form-section">
     <div class="container">
-      <div class="form-header">
-        <h2 class="section-title">Send Us a Message</h2>
-        <p class="section-subtitle">
-          Fill out the form below and we'll get back to you within 24 hours.
-        </p>
-      </div>
-
       <div class="form-container">
+        <!-- Left Column: Header + Image -->
+        <div class="left-column">
+          <div class="form-header">
+            <h2 class="section-title">Have a Question ? Contact Us today !</h2>
+            <p class="section-subtitle">
+              Fill up all the information here, then click submit button.
+            </p>
+          </div>
+          <div class="contact-image">
+            <img
+              src="@/assets/images/contact/Submit Question.jpg"
+              alt="Friendly man in plaid shirt ready to help with questions"
+            />
+          </div>
+        </div>
         <form @submit.prevent="submitForm" class="contact-form">
           <div class="form-grid">
-            <!-- Name Field -->
+            <!-- First Name Field -->
             <div class="form-group">
-              <label for="name" class="form-label">Full Name *</label>
+              <label for="firstName" class="form-label">First Name</label>
               <input
                 type="text"
-                id="name"
-                v-model="formData.name"
+                id="firstName"
+                v-model="formData.firstName"
                 class="form-input"
-                :class="{ error: errors.name }"
-                placeholder="Enter your full name"
+                :class="{ error: errors.firstName }"
+                placeholder=""
                 required
               />
-              <span v-if="errors.name" class="error-message">{{ errors.name }}</span>
+              <span v-if="errors.firstName" class="error-message">{{ errors.firstName }}</span>
+            </div>
+
+            <!-- Last Name Field -->
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                v-model="formData.lastName"
+                class="form-input"
+                :class="{ error: errors.lastName }"
+                placeholder=""
+                required
+              />
+              <span v-if="errors.lastName" class="error-message">{{ errors.lastName }}</span>
             </div>
 
             <!-- Email Field -->
             <div class="form-group">
-              <label for="email" class="form-label">Email Address *</label>
+              <label for="email" class="form-label">Email</label>
               <input
                 type="email"
                 id="email"
                 v-model="formData.email"
                 class="form-input"
                 :class="{ error: errors.email }"
-                placeholder="Enter your email address"
+                placeholder=""
                 required
               />
               <span v-if="errors.email" class="error-message">{{ errors.email }}</span>
             </div>
 
-            <!-- Phone Field -->
+            <!-- Subject Field -->
             <div class="form-group">
-              <label for="phone" class="form-label">Phone Number</label>
+              <label for="subject" class="form-label">Subject</label>
               <input
-                type="tel"
-                id="phone"
-                v-model="formData.phone"
+                type="text"
+                id="subject"
+                v-model="formData.subject"
                 class="form-input"
-                placeholder="(555) 123-4567"
+                placeholder=""
               />
-            </div>
-
-            <!-- Program Interest Field -->
-            <div class="form-group">
-              <label for="program" class="form-label">Program of Interest</label>
-              <select id="program" v-model="formData.program" class="form-select">
-                <option value="">Select a program</option>
-                <option value="business-admin">Business Administration</option>
-                <option value="health-social">Health & Social Services</option>
-                <option value="marketing-comm">Marketing & Communications</option>
-                <option value="tech-data">Technology & Data</option>
-                <option value="professional-dev">Professional Development</option>
-                <option value="other">Other</option>
-              </select>
             </div>
           </div>
 
           <!-- Message Field -->
           <div class="form-group message-group">
-            <label for="message" class="form-label">Message *</label>
+            <label for="message" class="form-label">Message</label>
             <textarea
               id="message"
               v-model="formData.message"
               class="form-textarea"
               :class="{ error: errors.message }"
-              placeholder="Tell us about your questions or what you'd like to know..."
-              rows="6"
+              placeholder="Please enter a maximum of 250 characters"
+              rows="8"
+              maxlength="250"
               required
             ></textarea>
             <span v-if="errors.message" class="error-message">{{ errors.message }}</span>
           </div>
 
-          <!-- Consent Checkbox -->
-          <div class="form-group checkbox-group">
-            <label class="checkbox-label">
-              <input type="checkbox" v-model="formData.consent" class="form-checkbox" required />
-              <span class="checkmark"></span>
-              <span class="checkbox-text">
-                I agree to receive communications from McMaster Continuing Education about programs
-                and services. *
-              </span>
-            </label>
+          <!-- Consent Text -->
+          <div class="consent-text">
+            <p>
+              By submitting this form, you are consenting to receive information about programs,
+              news and upcoming events from McMaster University Continuing Education. Consent can be
+              withdrawn at any time.
+            </p>
           </div>
 
           <!-- Submit Button -->
@@ -103,7 +110,7 @@
               :disabled="isSubmitting"
               :class="{ submitting: isSubmitting }"
             >
-              <span v-if="!isSubmitting">Send Message</span>
+              <span v-if="!isSubmitting">Submit Question</span>
               <span v-else>Sending...</span>
             </button>
           </div>
@@ -113,39 +120,6 @@
             {{ submitMessage }}
           </div>
         </form>
-
-        <!-- Contact Info Sidebar -->
-        <div class="contact-info">
-          <h3 class="contact-title">Other Ways to Reach Us</h3>
-
-          <div class="contact-methods">
-            <div class="contact-method">
-              <div class="method-icon">📞</div>
-              <div class="method-content">
-                <h4>Phone</h4>
-                <p>(905) 525-9140</p>
-                <span>Mon-Fri, 9AM-5PM</span>
-              </div>
-            </div>
-
-            <div class="contact-method">
-              <div class="method-icon">✉️</div>
-              <div class="method-content">
-                <h4>Email</h4>
-                <p>info@mcmaster.com</p>
-                <span>Response within 24 hours</span>
-              </div>
-            </div>
-
-            <div class="contact-method">
-              <div class="method-icon">📍</div>
-              <div class="method-content">
-                <h4>Visit Us</h4>
-                <p>1280 Main St W<br />Hamilton, L8S 4L8<br />Ontario, Canada</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -157,12 +131,11 @@ export default {
   data() {
     return {
       formData: {
-        name: '',
+        firstName: '',
+        lastName: '',
         email: '',
-        phone: '',
-        program: '',
+        subject: '',
         message: '',
-        consent: false,
       },
       errors: {},
       isSubmitting: false,
@@ -174,8 +147,12 @@ export default {
     validateForm() {
       this.errors = {}
 
-      if (!this.formData.name.trim()) {
-        this.errors.name = 'Name is required'
+      if (!this.formData.firstName.trim()) {
+        this.errors.firstName = 'First name is required'
+      }
+
+      if (!this.formData.lastName.trim()) {
+        this.errors.lastName = 'Last name is required'
       }
 
       if (!this.formData.email.trim()) {
@@ -186,8 +163,8 @@ export default {
 
       if (!this.formData.message.trim()) {
         this.errors.message = 'Message is required'
-      } else if (this.formData.message.trim().length < 10) {
-        this.errors.message = 'Message must be at least 10 characters long'
+      } else if (this.formData.message.trim().length > 250) {
+        this.errors.message = 'Message must be 250 characters or less'
       }
 
       return Object.keys(this.errors).length === 0
@@ -241,21 +218,26 @@ export default {
 <style scoped>
 .contact-form-section {
   padding: 6vh 2vw;
-  background-color: #f8f9fa;
+  background-color: #f1f3f5;
+  width: 100%;
+  box-shadow:
+    0 -2px 8px rgba(0, 0, 0, 0.04),
+    0 -1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 90vw;
   margin: 0 auto;
+  padding: 0;
 }
 
 .form-header {
-  text-align: center;
-  margin-bottom: 4rem;
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   font-weight: 700;
   color: var(--color-selected-dark);
   margin-bottom: 1rem;
@@ -268,23 +250,49 @@ export default {
 
 .form-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
-  align-items: flex-start;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: stretch;
+  width: 100%;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  min-height: 400px;
 }
 
 .contact-form {
   background: white;
-  padding: 3rem;
+  padding: 2.5rem 3rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .form-group {
@@ -294,6 +302,14 @@ export default {
 
 .message-group {
   grid-column: 1 / -1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-textarea {
+  flex-grow: 1;
+  min-height: 120px;
 }
 
 .form-label {
@@ -360,6 +376,17 @@ export default {
   line-height: 1.4;
 }
 
+.consent-text {
+  margin: 2rem 0 1.5rem 0;
+  font-size: 0.9rem;
+  color: var(--color-unselected-dim);
+  line-height: 1.5;
+}
+
+.consent-text p {
+  margin: 0;
+}
+
 .form-actions {
   text-align: center;
 }
@@ -369,7 +396,7 @@ export default {
   color: white;
   border: none;
   padding: 1rem 3rem;
-  border-radius: 8px;
+  border-radius: 25px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -407,90 +434,68 @@ export default {
   border: 1px solid #f5c6cb;
 }
 
-/* Contact Info Sidebar */
-.contact-info {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  height: fit-content;
-}
-
-.contact-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--color-selected-dark);
-  margin-bottom: 2rem;
-}
-
-.contact-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.contact-method {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.method-icon {
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.method-content h4 {
-  font-weight: 600;
-  color: var(--color-selected-dark);
-  margin-bottom: 0.25rem;
-}
-
-.method-content p {
-  color: var(--color-selected-dark);
-  margin-bottom: 0.25rem;
-  font-weight: 500;
-}
-
-.method-content span {
-  color: var(--color-unselected-dim);
-  font-size: 0.9rem;
-}
-
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .form-container {
+    gap: 3vw;
+  }
+}
+
 @media (max-width: 768px) {
   .contact-form-section {
     padding: 4vh 3vw;
   }
 
+  .container {
+    max-width: 94vw;
+  }
+
   .form-container {
     grid-template-columns: 1fr;
+    gap: 4vh;
+    align-items: flex-start;
+  }
+
+  .left-column {
     gap: 2rem;
+  }
+
+  .form-header {
+    text-align: center;
   }
 
   .contact-form {
     padding: 2rem;
+    height: auto;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
   }
 
-  .contact-info {
-    order: -1;
+  .contact-image img {
+    height: auto;
+    min-height: 300px;
   }
 }
 
 @media (max-width: 480px) {
+  .contact-form-section {
+    padding: 3vh 4vw;
+  }
+
+  .container {
+    max-width: 92vw;
+  }
+
   .contact-form {
-    padding: 1.5rem;
+    padding: clamp(1rem, 3vw, 2rem);
   }
 
   .submit-button {

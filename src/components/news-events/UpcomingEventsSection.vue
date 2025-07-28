@@ -109,11 +109,11 @@
 
 <script>
 // Import images
-import Event1 from '@/assets/images/Event1.png'
-import Event2 from '@/assets/images/Event2.jpg'
-import Event3 from '@/assets/images/Event3.png'
-import Event4 from '@/assets/images/Event4.jpg'
-import Event5 from '@/assets/images/Event5.jpg'
+import Event1 from '@/assets/images/news-events/events/Event1.png'
+import Event2 from '@/assets/images/news-events/events/Event2.jpg'
+import Event3 from '@/assets/images/news-events/events/Event3.png'
+import Event4 from '@/assets/images/news-events/events/Event4.jpg'
+import Event5 from '@/assets/images/news-events/events/Event5.jpg'
 
 export default {
   name: 'UpcomingEventsSection',
@@ -164,8 +164,8 @@ export default {
   background-color: white;
   width: 100%;
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    0 1px 0 rgba(0, 0, 0, 0.06);
+    0 -2px 8px rgba(0, 0, 0, 0.04),
+    0 -1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .container {

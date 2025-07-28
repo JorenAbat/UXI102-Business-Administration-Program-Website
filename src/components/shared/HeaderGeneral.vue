@@ -19,7 +19,7 @@
           <div class="logo-section">
             <div class="mcmaster-logo">
               <img
-                src="@/assets/images/mcmaster-logo.png"
+                src="@/assets/images/shared/mcmaster-logo.png"
                 alt="McMaster University"
                 class="logo-image"
               />

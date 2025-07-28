@@ -5,7 +5,7 @@
       <div class="mcmaster-section">
         <div class="logo-container">
           <img
-            src="@/assets/images/mcmaster-logo.png"
+            src="@/assets/images/shared/mcmaster-logo.png"
             alt="McMaster University"
             class="footer-logo"
           />
@@ -120,6 +120,9 @@ export default {
   background-color: #f8f9fa;
   color: var(--color-selected-dark);
   width: 100%;
+  box-shadow:
+    0 -2px 8px rgba(0, 0, 0, 0.04),
+    0 -1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .footer-container {

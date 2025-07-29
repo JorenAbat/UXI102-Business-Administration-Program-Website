@@ -28,21 +28,19 @@ export default {
 
 <style scoped>
 .hero-news-events {
-  background-color: white;
-  padding: 6vh 4vw;
+  background-color: var(--color-white-bg);
+  padding: var(--spacing-5xl) var(--container-padding);
   min-height: 50vh;
   width: 100%;
-  box-shadow:
-    0 -2px 8px rgba(0, 0, 0, 0.04),
-    0 -1px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-container {
-  width: 100%;
+  max-width: 90%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 4vw;
+  gap: var(--spacing-4xl);
 }
 
 .hero-content {
@@ -62,9 +60,9 @@ export default {
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  line-height: 1.5;
-  color: var(--color-unselected-dim);
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  color: var(--color-subgray-word);
 }
 
 .hero-image {
@@ -77,25 +75,35 @@ export default {
 .hero-image img {
   width: 100%;
   height: auto;
-  border-radius: 1vw;
+  border-radius: var(--border-radius-lg);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .hero-news-events {
-    padding: 4vh 3vw;
+    padding: var(--spacing-4xl) var(--spacing-xl);
   }
 
   .hero-container {
     flex-direction: column;
-    gap: 3vh;
+    gap: var(--spacing-3xl);
     text-align: center;
+    max-width: 95%;
   }
 }
 
 @media (max-width: 480px) {
   .hero-news-events {
-    padding: 3vh 4vw;
+    padding: var(--spacing-3xl) var(--spacing-lg);
     min-height: 40vh;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-base);
   }
 }
 </style>

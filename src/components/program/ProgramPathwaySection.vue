@@ -165,9 +165,11 @@ export default {
 }
 
 .container {
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--container-padding);
+  position: relative;
+  box-sizing: border-box;
 }
 
 .section-header {

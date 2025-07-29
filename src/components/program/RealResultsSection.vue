@@ -56,9 +56,9 @@ export default {
 }
 
 .container {
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--spacing-2xl);
 }
 
 .results-content {
@@ -75,19 +75,20 @@ export default {
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1a2332;
+  color: var(--color-mcmaster-black);
   line-height: 1.2;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  white-space: nowrap;
 }
 
 .stat-highlight {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .stat-number {
   font-size: 4rem;
   font-weight: 700;
-  color: #e91e63;
+  color: var(--color-mcmaster-red);
   line-height: 1;
   margin-bottom: 0.5rem;
 }
@@ -95,8 +96,8 @@ export default {
 .stat-label {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #1a2332;
-  margin-bottom: 0.5rem;
+  color: var(--color-mcmaster-black);
+  margin-bottom: 1rem;
 }
 
 .testimonial {
@@ -107,20 +108,9 @@ export default {
 .quote-text {
   font-size: 1.25rem;
   line-height: 1.6;
-  color: #1a2332;
-  font-style: italic;
-  margin-bottom: 2rem;
+  color: var(--color-mcmaster-black);
+  margin-bottom: 1.5rem;
   position: relative;
-}
-
-.quote-text::before {
-  content: '"';
-  font-size: 4rem;
-  color: #e91e63;
-  position: absolute;
-  top: -1rem;
-  left: -2rem;
-  font-family: Georgia, serif;
 }
 
 .quote-author {
@@ -151,14 +141,14 @@ export default {
   display: block;
   font-size: 1rem;
   font-weight: 600;
-  color: #1a2332;
+  color: var(--color-mcmaster-black);
   font-style: normal;
   margin-bottom: 0.25rem;
 }
 
 .author-title {
   font-size: 0.875rem;
-  color: #666;
+  color: var(--color-subgray-word);
   line-height: 1.4;
 }
 
@@ -201,12 +191,6 @@ export default {
     font-size: 1.125rem;
   }
 
-  .quote-text::before {
-    font-size: 3rem;
-    top: -0.5rem;
-    left: -1.5rem;
-  }
-
   .results-image {
     height: 400px;
     order: -1;
@@ -228,13 +212,6 @@ export default {
 
   .quote-text {
     font-size: 1rem;
-    padding-left: 1rem;
-  }
-
-  .quote-text::before {
-    font-size: 2.5rem;
-    top: -0.25rem;
-    left: -1rem;
   }
 
   .results-image {

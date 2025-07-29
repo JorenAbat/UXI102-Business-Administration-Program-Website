@@ -78,15 +78,14 @@ export default {
 }
 
 .hero-container {
-  width: 100%;
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 1rem 4rem 4rem 4rem;
+  padding: 0 var(--container-padding);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 9rem;
+  gap: var(--spacing-4xl);
   align-items: center;
-  box-sizing: border-box;
+  min-height: 70vh;
 }
 
 .hero-content {
@@ -97,9 +96,9 @@ export default {
 }
 
 .hero-subtitle {
-  color: #666;
-  font-size: 0.875rem;
-  font-weight: 500;
+  color: var(--color-subgray-word);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -107,17 +106,17 @@ export default {
 
 .hero-title {
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   line-height: 1.1;
-  color: #1a2332;
+  color: var(--color-mcmaster-black);
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
 
 .hero-description {
-  font-size: 1.125rem;
-  color: #4a5568;
+  font-size: var(--font-size-lg);
+  color: var(--color-subgray-word);
   line-height: 1.6;
   margin-bottom: 2.5rem;
   max-width: 450px;
@@ -147,25 +146,25 @@ export default {
 }
 
 .btn-primary {
-  background: #e91e63;
+  background: var(--color-mcmaster-red);
   color: white;
   box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
 }
 
 .btn-primary:hover {
-  background: #c2185b;
+  background: var(--color-mcmaster-rouge);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #1a2332;
-  border: 2px solid #1a2332;
+  color: var(--color-mcmaster-black);
+  border: 2px solid var(--color-mcmaster-black);
 }
 
 .btn-secondary:hover {
-  background: #1a2332;
+  background: var(--color-mcmaster-black);
   color: white;
   transform: translateY(-2px);
 }

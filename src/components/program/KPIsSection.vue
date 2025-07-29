@@ -63,13 +63,13 @@ export default {
 <style scoped>
 .kpis-section {
   padding: 80px 0;
-  background: #f8f9fa;
+  background: var(--color-light-bg);
 }
 
 .container {
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--container-padding);
 }
 
 .kpis-grid {
@@ -85,7 +85,7 @@ export default {
 
 .kpi-icon {
   font-size: 32px;
-  color: #333;
+  color: var(--color-selected-dark);
   margin-bottom: 24px;
   display: block;
 }
@@ -96,24 +96,24 @@ export default {
 
 .kpi-number {
   font-size: 48px;
-  font-weight: 700;
-  color: #e91e63;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-mcmaster-red);
   line-height: 1;
   margin-bottom: 16px;
 }
 
 .kpi-label {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-mcmaster-black);
   margin-bottom: 12px;
   line-height: 1.3;
 }
 
 .kpi-description {
-  color: #666;
+  color: var(--color-subgray-word);
   line-height: 1.6;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   margin: 0;
 }
 
@@ -151,7 +151,7 @@ export default {
   }
 
   .kpi-label {
-    font-size: 16px;
+    font-size: var(--font-size-base);
   }
 
   .kpi-icon {

@@ -91,17 +91,17 @@ export default {
 <style scoped>
 .gain-diploma {
   background-color: var(--color-light-bg);
-  padding: 5rem 0;
+  padding: var(--section-padding);
 }
 
 .gain-container {
   width: 100%;
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 var(--container-padding);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: var(--spacing-4xl);
   align-items: center;
   box-sizing: border-box;
 }
@@ -117,33 +117,34 @@ export default {
   height: auto;
   max-height: 600px;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
 }
 
 .gain-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--spacing-2xl);
 }
 
 .gain-header {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-lg);
 }
 
+/* Using shared section header styles */
 .section-label {
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-unselected-dim);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-sm);
   display: block;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
   color: var(--color-mcmaster-black);
   line-height: 1.2;
   margin: 0;
@@ -152,24 +153,25 @@ export default {
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: var(--spacing-2xl);
 }
 
 .skill-item {
   display: flex;
-  gap: 1rem;
+  gap: var(--spacing-lg);
   align-items: flex-start;
 }
 
+/* Using shared icon gradient styles */
 .skill-icon {
   width: 60px;
   height: 60px;
   background: linear-gradient(135deg, #e91e63, #f48fb1);
-  border-radius: 50%;
+  border-radius: var(--border-radius-pill);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--spacing-xl);
   color: white;
   font-size: 1.4rem;
   flex-shrink: 0;
@@ -180,34 +182,35 @@ export default {
 }
 
 .skill-title {
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-mcmaster-black);
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 var(--spacing-sm) 0;
   line-height: 1.3;
 }
 
 .skill-description {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--color-subgray-word);
   line-height: 1.5;
   margin: 0;
 }
 
 .gain-button {
-  margin-top: 1rem;
+  margin-top: var(--spacing-lg);
 }
 
+/* Using shared button styles */
 .btn-course-list {
   background-color: var(--color-mcmaster-red);
   color: white;
   border: none;
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 1rem;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: var(--border-radius-full);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
 }
 
 .btn-course-list:hover {
@@ -215,11 +218,11 @@ export default {
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
+/* Responsive Design using shared breakpoints */
 @media (max-width: 1400px) {
   .gain-container {
     padding: 0 3rem;
-    gap: 3rem;
+    gap: var(--spacing-3xl);
   }
 
   .section-title {
@@ -229,28 +232,28 @@ export default {
 
 @media (max-width: 1200px) {
   .gain-container {
-    padding: 0 2rem;
-    gap: 2rem;
+    padding: 0 var(--spacing-2xl);
+    gap: var(--spacing-2xl);
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: var(--font-size-3xl);
   }
 
   .skills-grid {
-    gap: 1.5rem;
+    gap: var(--spacing-xl);
   }
 }
 
 @media (max-width: 768px) {
   .gain-diploma {
-    padding: 4rem 0;
+    padding: var(--section-padding-mobile);
   }
 
   .gain-container {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1rem;
+    gap: var(--spacing-2xl);
+    padding: 0 var(--container-padding-mobile);
   }
 
   .section-title {
@@ -264,7 +267,7 @@ export default {
 
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: var(--spacing-xl);
   }
 
   .gain-button {
@@ -274,15 +277,15 @@ export default {
 
 @media (max-width: 480px) {
   .gain-diploma {
-    padding: 3rem 0;
+    padding: var(--spacing-3xl) 0;
   }
 
   .section-title {
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
   }
 
   .skill-item {
-    gap: 0.75rem;
+    gap: var(--spacing-md);
   }
 
   .skill-icon {
@@ -292,11 +295,11 @@ export default {
   }
 
   .skill-title {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 
   .skill-description {
-    font-size: 0.8rem;
+    font-size: var(--font-size-xs);
   }
 }
 </style>

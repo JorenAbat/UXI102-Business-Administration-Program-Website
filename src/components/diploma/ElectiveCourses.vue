@@ -285,9 +285,9 @@ export default {
 
 .elective-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 var(--container-padding);
   box-sizing: border-box;
 }
 

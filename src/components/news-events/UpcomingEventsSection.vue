@@ -160,16 +160,14 @@ export default {
 
 <style scoped>
 .upcoming-events-section {
-  padding: 6vh 2vw;
-  background-color: white;
+  padding: var(--spacing-5xl) var(--spacing-2xl);
+  background-color: var(--color-white-bg);
   width: 100%;
-  box-shadow:
-    0 -2px 8px rgba(0, 0, 0, 0.04),
-    0 -1px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
 }
 
 .container {
-  max-width: 90vw;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0;
 }
@@ -179,7 +177,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 4vh;
+  margin-bottom: var(--spacing-4xl);
 }
 
 .section-title-area {
@@ -187,35 +185,35 @@ export default {
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 700;
-  color: var(--color-selected-dark);
-  margin: 0 0 0.5em 0;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-mcmaster-black);
+  margin: 0 0 var(--spacing-lg) 0;
 }
 
 .section-subtitle {
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  color: var(--color-unselected-dim);
+  font-size: var(--font-size-lg);
+  color: var(--color-subgray-word);
   margin: 0;
 }
 
 .explore-events {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: var(--spacing-sm);
   color: var(--color-mcmaster-red);
   text-decoration: none;
-  font-weight: 600;
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-  transition: color 0.3s ease;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  transition: color var(--transition-base);
 }
 
 .explore-events:hover {
-  color: #8b0000;
+  color: var(--color-mcmaster-rouge);
 }
 
 .explore-events svg {
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-base);
 }
 
 .explore-events:hover svg {
@@ -226,7 +224,7 @@ export default {
 .events-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4vh 2vw;
+  gap: var(--spacing-4xl) var(--spacing-2xl);
   grid-auto-flow: row;
 }
 
@@ -252,26 +250,26 @@ export default {
 
 /* Event Cards */
 .event-card {
-  background: white;
-  border-radius: 1vw;
+  background: var(--color-white-bg);
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
-  box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .event-card:hover {
-  transform: translateY(-0.5vh);
-  box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
 }
 
 .event-card.large .event-image {
-  height: 25vh;
+  height: 300px;
 }
 
 .event-card.small .event-image {
-  height: 20vh;
+  height: 240px;
 }
 
 .event-image {
@@ -283,7 +281,7 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-base);
 }
 
 .event-card:hover .event-image img {
@@ -291,14 +289,14 @@ export default {
 }
 
 .event-content {
-  padding: clamp(1rem, 2vw, 2rem);
+  padding: var(--spacing-2xl);
 }
 
 .event-title {
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
-  font-weight: 600;
-  color: var(--color-selected-dark);
-  margin-bottom: 1em;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-mcmaster-black);
+  margin-bottom: var(--spacing-lg);
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -308,40 +306,40 @@ export default {
 }
 
 .event-card.large .event-title {
-  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-size: var(--font-size-2xl);
   -webkit-line-clamp: 2;
   line-clamp: 2;
 }
 
 .event-datetime {
   color: var(--color-subgray-word);
-  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
-  margin-bottom: 0.5em;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
 }
 
 .event-time {
   color: var(--color-subgray-word);
-  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
-  margin-bottom: 1.5em;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xl);
 }
 
 .check-out {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: var(--spacing-sm);
   color: var(--color-mcmaster-red);
   text-decoration: none;
-  font-weight: 600;
-  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
-  transition: color 0.3s ease;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-base);
 }
 
 .check-out:hover {
-  color: #8b0000;
+  color: var(--color-mcmaster-rouge);
 }
 
 .check-out svg {
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-base);
 }
 
 .check-out:hover svg {
@@ -351,7 +349,7 @@ export default {
 /* Responsive Design */
 @media (max-width: 1200px) {
   .container {
-    max-width: 95vw;
+    max-width: 90%;
   }
 }
 
@@ -375,22 +373,26 @@ export default {
 
 @media (max-width: 768px) {
   .upcoming-events-section {
-    padding: 4vh 3vw;
+    padding: var(--spacing-4xl) var(--spacing-xl);
   }
 
   .container {
-    max-width: 94vw;
+    max-width: 95%;
   }
 
   .section-header {
     flex-direction: column;
-    gap: 2vh;
+    gap: var(--spacing-2xl);
     align-items: flex-start;
+  }
+
+  .section-title {
+    font-size: var(--font-size-3xl);
   }
 
   .events-grid {
     grid-template-columns: 1fr;
-    gap: 4vh 3vw;
+    gap: var(--spacing-3xl);
   }
 
   .event-card.large:first-child,
@@ -401,26 +403,26 @@ export default {
 
   .event-card.large .event-image,
   .event-card.small .event-image {
-    height: 25vh;
+    height: 250px;
   }
 }
 
 @media (max-width: 480px) {
   .upcoming-events-section {
-    padding: 3vh 4vw;
+    padding: var(--spacing-3xl) var(--spacing-lg);
   }
 
-  .container {
-    max-width: 92vw;
+  .section-title {
+    font-size: var(--font-size-2xl);
   }
 
   .event-content {
-    padding: clamp(0.8rem, 3vw, 1.5rem);
+    padding: var(--spacing-lg);
   }
 
   .event-card.large .event-image,
   .event-card.small .event-image {
-    height: 22vh;
+    height: 200px;
   }
 }
 </style>

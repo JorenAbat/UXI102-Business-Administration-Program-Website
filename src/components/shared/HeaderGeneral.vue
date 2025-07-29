@@ -34,10 +34,14 @@
         <nav class="nav-desktop" v-if="!isMobileMenuOpen">
           <ul class="nav-list">
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link">
+              <router-link
+                to="/program"
+                class="nav-link"
+                :class="{ active: activePage === 'program' }"
+              >
                 Find Programs & Courses
                 <i class="fas fa-chevron-down"></i>
-              </a>
+              </router-link>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">About Us</a>
@@ -105,10 +109,15 @@
     <nav class="nav-mobile" v-if="isMobileMenuOpen">
       <ul class="nav-list-mobile">
         <li class="nav-item-mobile dropdown">
-          <a href="#" class="nav-link-mobile">
+          <router-link
+            to="/program"
+            class="nav-link-mobile"
+            :class="{ active: activePage === 'program' }"
+            @click="closeMobileMenu"
+          >
             Find Programs & Courses
             <i class="fas fa-chevron-down"></i>
-          </a>
+          </router-link>
         </li>
         <li class="nav-item-mobile">
           <a href="#" class="nav-link-mobile">About Us</a>

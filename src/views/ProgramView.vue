@@ -1,7 +1,7 @@
 <template>
   <div class="program-page">
     <!-- Header -->
-    <HeaderGeneral />
+    <HeaderGeneral :active-page="'program'" />
 
     <!-- Hero Section -->
     <HeroProgramBanner />

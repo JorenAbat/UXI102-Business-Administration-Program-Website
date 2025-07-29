@@ -37,7 +37,7 @@ import ProgramHighlightsSection from '@/components/program/ProgramHighlightsSect
 import ProgramPathwaySection from '@/components/program/ProgramPathwaySection.vue'
 import RealResultsSection from '@/components/program/RealResultsSection.vue'
 import KPIsSection from '@/components/program/KPIsSection.vue'
-import CallToActionContactProgram from '@/components/shared/CallToActionContactProgram.vue'
+import CallToActionContactProgram from '@/components/shared/CallToAction.vue'
 import FooterGeneral from '@/components/shared/FooterGeneral.vue'
 
 export default {

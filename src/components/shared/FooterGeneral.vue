@@ -11,11 +11,11 @@
           />
         </div>
         <p class="mcmaster-description">
-          At McMaster, we don't just teach—we challenge, inspire, and elevate. Our students go on to
-          lead breakthroughs in medicine, drive innovation in engineering, and shape policy that
-          matters. Ranked among Canada's top research universities, we're proud of the minds we've
-          shaped and the impact they've made. Excellence isn't a buzzword here—it's tradition,
-          earned and proven every day in labs, classrooms, and communities around the world.
+          At McMaster, we challenge, inspire, and elevate. Our students go on to lead breakthroughs
+          in medicine, drive innovation in engineering, and shape policy that matters. Ranked among
+          Canada's top research universities, we're proud of the minds we've shaped and the impact
+          they've made. Excellence is tradition, earned and proven every day in labs, classrooms,
+          and communities around the world.
         </p>
       </div>
 

@@ -1,29 +1,32 @@
 <template>
-  <section class="hero-program">
-    <div class="hero-background">
-      <img
-        src="@/assets/images/program/BA Program _ Hero Banner.jpg"
-        alt="Professional woman on phone in office setting"
-        class="hero-background-image"
-      />
-    </div>
-    <div class="hero-overlay">
-      <div class="hero-container">
-        <div class="hero-content">
-          <p class="hero-subtitle">McMaster Continuing Education</p>
-          <h1 class="hero-title">
-            Business Administration<br />
-            Program
-          </h1>
-          <p class="hero-description">Get down to business and grow your career in management.</p>
-          <div class="hero-actions">
-            <button class="btn btn-primary">Apply Now</button>
-            <button class="btn btn-secondary">
-              Explore Courses
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
+  <section class="hero-diploma">
+    <div class="hero-container">
+      <!-- Left Side - Content -->
+      <div class="hero-content">
+        <p class="hero-subtitle">McMaster Continuing Education</p>
+        <h1 class="hero-title">
+          Business Administration<br />
+          Advanced Diploma
+        </h1>
+        <p class="hero-description">
+          Advance your skills and earn a Diploma in Business Administration in a year.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary">Register Now</button>
+          <button class="btn btn-secondary">
+            Explore Courses
+            <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
+      </div>
+
+      <!-- Right Side - Image -->
+      <div class="hero-image">
+        <img
+          src="@/assets/images/diploma/BA Dip_Hero Banner.jpg"
+          alt="Business Administration Advanced Diploma"
+          class="hero-img"
+        />
       </div>
     </div>
   </section>
@@ -31,50 +34,17 @@
 
 <script>
 export default {
-  name: 'HeroProgramBanner',
+  name: 'HeroDiploma',
 }
 </script>
 
 <style scoped>
-.hero-program {
-  position: relative;
-  min-height: 70vh;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-start;
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.hero-background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: right 25%;
-}
-
-.hero-overlay {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(255, 255, 255, 0.65) 40%,
-    rgba(255, 255, 255, 0.2) 60%,
-    transparent 75%
-  );
+.hero-diploma {
+  background-color: white;
+  padding: 6rem 0;
   min-height: 70vh;
   display: flex;
-  align-items: flex-start;
-  padding-top: 1rem;
+  align-items: center;
 }
 
 .hero-container {
@@ -170,36 +140,73 @@ export default {
   transform: translateY(-2px);
 }
 
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
 /* Responsive Design */
+@media (max-width: 1400px) {
+  .hero-container {
+    padding: 1rem 3rem 3rem 3rem;
+    gap: 5rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-container {
+    padding: 1rem 2rem 3rem 2rem;
+    gap: 4rem;
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.75) 50%,
-      rgba(255, 255, 255, 0.4) 100%
-    );
-    padding-top: 0.5rem;
+  .hero-diploma {
+    padding: 4rem 0;
+    min-height: auto;
   }
 
   .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     padding: 0.5rem 1rem 3rem 1rem;
     text-align: center;
   }
 
-  .hero-title {
-    white-space: normal;
-  }
-
   .hero-content {
-    max-width: none;
-    padding-right: 0;
-    margin-left: 0;
     margin-top: 0.5rem;
   }
 
   .hero-title {
+    white-space: normal;
     font-size: 2.5rem;
+  }
+
+  .hero-description {
+    white-space: normal;
   }
 
   .hero-actions {
@@ -213,6 +220,10 @@ export default {
 }
 
 @media (max-width: 480px) {
+  .hero-container {
+    padding: 1rem 1rem 2rem 1rem;
+  }
+
   .hero-title {
     font-size: 2rem;
   }
@@ -230,10 +241,6 @@ export default {
     width: 100%;
     max-width: 300px;
     justify-content: center;
-  }
-
-  .hero-container {
-    padding: 1rem 1rem 2rem 1rem;
   }
 }
 </style>

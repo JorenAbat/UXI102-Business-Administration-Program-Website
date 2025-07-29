@@ -33,15 +33,39 @@
         <!-- Center - Navigation Links -->
         <nav class="nav-desktop" v-if="!isMobileMenuOpen">
           <ul class="nav-list">
-            <li class="nav-item dropdown">
-              <router-link
-                to="/program"
+            <li class="nav-item dropdown" @mouseenter="showDropdown" @mouseleave="startHideTimer">
+              <a
+                href="#"
                 class="nav-link"
-                :class="{ active: activePage === 'program' }"
+                :class="{ active: activePage === 'program' || activePage === 'diploma' }"
+                @click.prevent="toggleDropdown"
               >
                 Find Programs & Courses
-                <i class="fas fa-chevron-down"></i>
-              </router-link>
+                <i class="fas fa-chevron-down" :class="{ rotated: isDropdownOpen }"></i>
+              </a>
+              <div
+                class="dropdown-menu"
+                v-show="isDropdownOpen"
+                @mouseenter="cancelHideTimer"
+                @mouseleave="startHideTimer"
+              >
+                <router-link
+                  to="/program"
+                  class="dropdown-item"
+                  :class="{ active: activePage === 'program' }"
+                  @click="hideDropdown"
+                >
+                  Business Administration Program
+                </router-link>
+                <router-link
+                  to="/diploma"
+                  class="dropdown-item"
+                  :class="{ active: activePage === 'diploma' }"
+                  @click="hideDropdown"
+                >
+                  Business Administration Advanced Diploma
+                </router-link>
+              </div>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">About Us</a>
@@ -108,16 +132,34 @@
     <!-- Mobile Navigation -->
     <nav class="nav-mobile" v-if="isMobileMenuOpen">
       <ul class="nav-list-mobile">
-        <li class="nav-item-mobile dropdown">
-          <router-link
-            to="/program"
+        <li class="nav-item-mobile dropdown-mobile">
+          <a
+            href="#"
             class="nav-link-mobile"
-            :class="{ active: activePage === 'program' }"
-            @click="closeMobileMenu"
+            :class="{ active: activePage === 'program' || activePage === 'diploma' }"
+            @click.prevent="toggleMobileDropdown"
           >
             Find Programs & Courses
-            <i class="fas fa-chevron-down"></i>
-          </router-link>
+            <i class="fas fa-chevron-down" :class="{ rotated: isMobileDropdownOpen }"></i>
+          </a>
+          <div class="dropdown-menu-mobile" v-show="isMobileDropdownOpen">
+            <router-link
+              to="/program"
+              class="dropdown-item-mobile"
+              :class="{ active: activePage === 'program' }"
+              @click="closeMobileMenu"
+            >
+              Business Administration Program
+            </router-link>
+            <router-link
+              to="/diploma"
+              class="dropdown-item-mobile"
+              :class="{ active: activePage === 'diploma' }"
+              @click="closeMobileMenu"
+            >
+              Business Administration Advanced Diploma
+            </router-link>
+          </div>
         </li>
         <li class="nav-item-mobile">
           <a href="#" class="nav-link-mobile">About Us</a>
@@ -151,6 +193,25 @@
             <span>Search</span>
           </a>
         </li>
+
+        <!-- Mobile Utility Section -->
+        <li class="nav-divider-mobile"></li>
+        <li class="nav-item-mobile">
+          <a href="#" class="nav-link-mobile utility-link-mobile">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+            <span class="cart-count-mobile">1</span>
+          </a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="#" class="nav-link-mobile utility-link-mobile">
+            <i class="fas fa-user"></i>
+            <span>Login MacID</span>
+          </a>
+        </li>
+        <li class="nav-item-mobile">
+          <button class="register-button-mobile" @click="closeMobileMenu">Register Now</button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -171,6 +232,9 @@ export default {
   data() {
     return {
       isMobileMenuOpen: false,
+      isDropdownOpen: false,
+      isMobileDropdownOpen: false,
+      hideTimer: null,
     }
   },
   methods: {
@@ -179,6 +243,38 @@ export default {
     },
     closeMobileMenu() {
       this.isMobileMenuOpen = false
+      this.isMobileDropdownOpen = false
+    },
+    showDropdown() {
+      this.cancelHideTimer()
+      this.isDropdownOpen = true
+    },
+    hideDropdown() {
+      this.isDropdownOpen = false
+    },
+    startHideTimer() {
+      this.hideTimer = setTimeout(() => {
+        this.hideDropdown()
+      }, 300) // 300ms delay
+    },
+    cancelHideTimer() {
+      if (this.hideTimer) {
+        clearTimeout(this.hideTimer)
+        this.hideTimer = null
+      }
+    },
+    toggleDropdown() {
+      this.isDropdownOpen = !this.isDropdownOpen
+    },
+    toggleMobileDropdown() {
+      this.isMobileDropdownOpen = !this.isMobileDropdownOpen
+    },
+    handleDocumentClick(event) {
+      // Close dropdown if clicking outside of it
+      const dropdown = this.$el.querySelector('.dropdown')
+      if (dropdown && !dropdown.contains(event.target)) {
+        this.hideDropdown()
+      }
     },
   },
   mounted() {
@@ -188,9 +284,14 @@ export default {
         this.closeMobileMenu()
       }
     })
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', this.handleDocumentClick)
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.closeMobileMenu)
+    document.removeEventListener('click', this.handleDocumentClick)
+    this.cancelHideTimer()
   },
 }
 </script>
@@ -272,8 +373,9 @@ export default {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  width: 350px;
-  min-width: 350px;
+  min-width: 200px;
+  max-width: 350px;
+  flex: 0 0 auto;
 }
 
 .logo-section {
@@ -311,6 +413,7 @@ export default {
   flex: 1;
   justify-content: center;
   min-width: 0;
+  overflow: visible;
 }
 
 .nav-list {
@@ -318,20 +421,88 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
   width: 100%;
   flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .nav-item {
   margin: 0;
   flex-shrink: 0;
+  position: relative;
 }
 
 .nav-item:last-child {
   margin-left: 2rem;
+}
+
+/* Dropdown Functionality */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 280px;
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -0.25rem;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: transparent;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: var(--color-unselected-dim);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--color-divider);
+  white-space: nowrap;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-light-bg);
+  color: var(--color-selected-dark);
+}
+
+.dropdown-item.active {
+  color: var(--color-mcmaster-red);
+  font-weight: 600;
+  background-color: rgba(225, 25, 85, 0.05);
+}
+
+.nav-link i.rotated {
+  transform: rotate(180deg);
+}
+
+.nav-link i {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  transition: transform 0.3s ease;
 }
 
 .nav-link {
@@ -367,20 +538,16 @@ export default {
   background-color: var(--color-mcmaster-red);
 }
 
-.nav-link i {
-  font-size: 0.75rem;
-  margin-left: 0.25rem;
-}
-
 /* Utility Section */
 .utility-section {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-shrink: 0;
-  width: 350px;
-  min-width: 350px;
+  min-width: 200px;
+  max-width: 350px;
   justify-content: flex-end;
+  flex: 0 0 auto;
 }
 
 .cart-section,
@@ -505,10 +672,56 @@ export default {
   font-weight: 600;
 }
 
+/* Mobile Dropdown Styles */
+.dropdown-mobile {
+  position: relative;
+}
+
+.dropdown-menu-mobile {
+  background-color: var(--color-light-bg);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  border-left: 3px solid var(--color-mcmaster-red);
+  padding-left: 1rem;
+}
+
+.dropdown-item-mobile {
+  display: block;
+  text-decoration: none;
+  color: var(--color-unselected-dim);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.75rem 0;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.dropdown-item-mobile:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item-mobile:hover {
+  color: var(--color-selected-dark);
+}
+
+.dropdown-item-mobile.active {
+  color: var(--color-mcmaster-red);
+  font-weight: 600;
+}
+
+.nav-link-mobile i.rotated {
+  transform: rotate(180deg);
+}
+
+.nav-link-mobile i {
+  transition: transform 0.3s ease;
+}
+
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .header-container {
     padding: 0 3rem;
+    gap: 1.5rem;
   }
 
   .announcement-container {
@@ -517,78 +730,179 @@ export default {
   }
 
   .nav-list {
-    gap: 2.5rem;
-  }
-
-  .nav-item:last-child {
-    margin-left: 1.5rem;
+    gap: 1.5rem;
   }
 
   .utility-section {
-    gap: 1.5rem;
-    width: 320px;
-    min-width: 320px;
+    gap: 1.25rem;
+    min-width: 180px;
+    max-width: 300px;
   }
 
   .branding-section {
-    width: 320px;
-    min-width: 320px;
+    min-width: 180px;
+    max-width: 300px;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .ce-text {
+    font-size: 1.05rem;
+  }
+
+  .register-button {
+    padding: 0.45rem 1.4rem;
+    font-size: 0.85rem;
   }
 }
 
-@media (max-width: 1024px) {
-  .header-container {
-    padding: 0 2rem;
-  }
-
-  .announcement-container {
-    padding: 0 2rem;
-    gap: 1rem;
-  }
-
+@media (max-width: 1500px) {
   .utility-section {
     gap: 1rem;
-    width: 280px;
-    min-width: 280px;
-  }
-
-  .login-text {
-    display: none;
   }
 
   .nav-list {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
-  .nav-item:last-child {
-    margin-left: 1rem;
+  .nav-link {
+    font-size: 0.8rem;
   }
 
   .ce-text {
     font-size: 1rem;
   }
 
-  .logo-image {
-    height: 35px;
+  .register-button {
+    padding: 0.4rem 1.3rem;
+    font-size: 0.8rem;
   }
 
-  .branding-section {
-    width: 280px;
-    min-width: 280px;
+  .cart-section,
+  .login-section {
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 768px) {
-  .announcement-text {
+@media (max-width: 1400px) {
+  .header-container {
+    padding: 0 2.5rem;
+    gap: 1rem;
+  }
+
+  .announcement-container {
+    padding: 0 2.5rem;
+    gap: 1rem;
+  }
+
+  .nav-list {
+    gap: 1.25rem;
+  }
+
+  .utility-section {
+    min-width: 160px;
+    max-width: 250px;
+    gap: 0.75rem;
+  }
+
+  .branding-section {
+    min-width: 160px;
+    max-width: 280px;
+  }
+
+  .nav-link {
     font-size: 0.75rem;
   }
 
-  .subscribe-button {
-    padding: 0.4rem 1.2rem;
+  .ce-text {
+    font-size: 0.9rem;
+  }
+
+  .logo-image {
+    height: 35px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .login-text {
+    display: none;
+  }
+
+  .nav-link {
     font-size: 0.7rem;
   }
 
+  .utility-section {
+    gap: 0.8rem;
+  }
+
+  .nav-list {
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .nav-item:last-child {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 0.68rem;
+  }
+
+  .nav-list {
+    gap: 1rem;
+  }
+
+  .utility-section {
+    gap: 0.7rem;
+  }
+
+  .ce-text {
+    font-size: 0.9rem;
+  }
+
+  .logo-image {
+    height: 35px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .nav-link {
+    font-size: 0.65rem;
+    padding: 0.3rem 0;
+  }
+
+  .nav-list {
+    gap: 0.9rem;
+  }
+
+  .utility-section {
+    gap: 0.6rem;
+  }
+
+  .register-button {
+    padding: 0.35rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .ce-text {
+    font-size: 0.85rem;
+  }
+
+  .logo-image {
+    height: 32px;
+  }
+}
+
+@media (max-width: 1200px) {
   .nav-desktop {
+    display: none;
+  }
+
+  .utility-section {
     display: none;
   }
 
@@ -603,12 +917,12 @@ export default {
   .header-container {
     height: 50px;
     padding: 0 1rem;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   .announcement-container {
     padding: 0 1rem;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .logo-image {
@@ -616,23 +930,110 @@ export default {
   }
 
   .ce-text {
-    font-size: 0.875rem;
-  }
-
-  .utility-section {
-    gap: 0.5rem;
-    width: auto;
-    min-width: auto;
+    font-size: 0.8rem;
   }
 
   .register-button {
-    padding: 0.4rem 1.2rem;
+    display: none;
+  }
+
+  .branding-section {
+    width: auto;
+    min-width: auto;
+    flex: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0 1.5rem;
+    gap: 0.25rem;
+  }
+
+  .announcement-container {
+    padding: 0 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .utility-section {
+    gap: 0.25rem;
+    min-width: 120px;
+    max-width: 200px;
+  }
+
+  .nav-list {
+    gap: 0.75rem;
+  }
+
+  .branding-section {
+    min-width: 120px;
+    max-width: 220px;
+  }
+
+  .nav-link {
+    font-size: 0.6rem;
+  }
+
+  .register-button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .ce-text {
+    font-size: 0.8rem;
+  }
+
+  .logo-image {
+    height: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-container {
+    height: 50px;
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+
+  .announcement-container {
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+
+  .logo-image {
+    height: 30px;
+  }
+
+  .ce-text {
     font-size: 0.8rem;
   }
 
   .branding-section {
     width: auto;
     min-width: auto;
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .announcement-text {
+    font-size: 0.75rem;
+  }
+
+  .subscribe-button {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.7rem;
+  }
+
+  .header-container {
+    height: 50px;
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+
+  .announcement-container {
+    padding: 0 1rem;
+    gap: 0.75rem;
   }
 }
 
@@ -653,5 +1054,71 @@ export default {
   .ce-text {
     font-size: 0.75rem;
   }
+
+  .register-button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .announcement-text {
+    font-size: 0.7rem;
+  }
+
+  .subscribe-button {
+    padding: 0.3rem 1rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* Mobile Menu Styles */
+.nav-divider-mobile {
+  height: 1px;
+  background-color: var(--color-divider);
+  margin: 0.5rem 0;
+}
+
+.utility-link-mobile {
+  display: flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.utility-link-mobile i {
+  font-size: 1.1rem;
+  color: var(--color-unselected-dim);
+  width: 20px;
+}
+
+.cart-count-mobile {
+  background-color: var(--color-mcmaster-red);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.register-button-mobile {
+  background-color: var(--color-mcmaster-red);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.register-button-mobile:hover {
+  background-color: var(--color-mcmaster-rouge);
 }
 </style>

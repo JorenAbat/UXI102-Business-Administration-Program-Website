@@ -21,7 +21,7 @@
 import HeaderGeneral from '@/components/shared/HeaderGeneral.vue'
 import HeroContact from '@/components/contact/HeroContact.vue'
 import ContactForm from '@/components/contact/ContactForm.vue'
-import CallToActionContactProgram from '@/components/shared/CallToActionContactProgram.vue'
+import CallToActionContactProgram from '@/components/shared/CallToAction.vue'
 import FooterGeneral from '@/components/shared/FooterGeneral.vue'
 
 export default {

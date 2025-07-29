@@ -5,7 +5,7 @@
         <!-- Left Column: Header + Image -->
         <div class="left-column">
           <div class="form-header">
-            <h2 class="section-title">Have a Question ? Contact Us today !</h2>
+            <h2 class="section-title">Have a Question? Contact Us today!</h2>
             <p class="section-subtitle">
               Fill up all the information here, then click submit button.
             </p>

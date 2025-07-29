@@ -59,7 +59,7 @@ export default {
 }
 
 .hero-container {
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   display: flex;
   align-items: center;

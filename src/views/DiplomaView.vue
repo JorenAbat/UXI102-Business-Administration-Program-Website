@@ -16,7 +16,7 @@
     <ElectiveCourses />
 
     <!-- Call to Action Section -->
-    <CallToActionContactProgram />
+    <CallToAction />
 
     <!-- Reuse Footer -->
     <FooterGeneral />

@@ -103,7 +103,7 @@ export default {
 }
 
 .pathway-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 4rem;
 }
 
@@ -130,7 +130,7 @@ export default {
   color: var(--color-subgray-word);
   line-height: 1.6;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .core-courses-section {

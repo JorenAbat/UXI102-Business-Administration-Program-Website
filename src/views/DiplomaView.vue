@@ -30,7 +30,7 @@ import HeroDiploma from '@/components/diploma/HeroDiploma.vue'
 import GainDiploma from '@/components/diploma/GainDiploma.vue'
 import ProgramPathwayDiploma from '@/components/diploma/ProgramPathwayDiploma.vue'
 import ElectiveCourses from '@/components/diploma/ElectiveCourses.vue'
-import CallToActionContactProgram from '@/components/shared/CallToAction.vue'
+import CallToAction from '@/components/shared/CallToAction.vue'
 
 export default {
   name: 'DiplomaView',
@@ -41,7 +41,7 @@ export default {
     GainDiploma,
     ProgramPathwayDiploma,
     ElectiveCourses,
-    CallToActionDiploma,
+    CallToAction,
   },
 }
 </script>

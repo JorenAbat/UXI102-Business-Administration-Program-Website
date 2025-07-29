@@ -23,7 +23,7 @@
       <div class="navigation-section">
         <!-- Programs & Courses Column -->
         <div class="nav-column">
-          <h3 class="nav-title">PROGRAMS & COURSES</h3>
+          <h3 class="nav-title">Programs & Courses</h3>
           <ul class="nav-links">
             <li><a href="#" class="nav-link">Business</a></li>
             <li><a href="#" class="nav-link">Health & Social Services</a></li>
